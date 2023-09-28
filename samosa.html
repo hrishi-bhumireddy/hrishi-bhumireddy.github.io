@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samosa Counter</title>
+</head>
+<body>
+    <h1>Welcome to the Samosa Counter!</h1>
+    <p>Total Samosas: <span id="totalSamosas">0</span></p>
+    <label for="samosaInput">Number of Samosas:</label>
+    <input type="number" id="samosaInput" min="0">
+    <button onclick="addSamosas()">Add Samosas</button>
+
+    <script>
+        // Function to add Samosas
+        function addSamosas() {
+            // Get the input value
+            var input = parseInt(document.getElementById("samosaInput").value);
+
+            // Get the current total Samosas count
+            var currentTotal = parseInt(document.getElementById("totalSamosas").textContent);
+
+            // Update the total Samosas count
+            var newTotal = currentTotal + input;
+            document.getElementById("totalSamosas").textContent = newTotal;
+
+            // Clear the input field
+            document.getElementById("samosaInput").value = "";
+
+            // Save the total Samosas count to local storage
+            localStorage.setItem("samosaCount", newTotal);
+        }
+
+        // Function to reset the total Samosas count at 8:00 AM
+        function resetSamosas() {
+            var now = new Date();
+            if (now.getHours() === 8 && now.getMinutes() === 0) {
+                // Reset the total Samosas count to 0
+                document.getElementById("totalSamosas").textContent = "0";
+                localStorage.setItem("samosaCount", "0");
+            }
+        }
+
+        // Check for reset at page load
+        resetSamosas();
+
+        // Check for reset every minute
+        setInterval(resetSamosas, 60000);
+
+        // Initialize the total Samosas count from local storage
+        var savedTotal = localStorage.getItem("samosaCount");
+        if (savedTotal) {
+            document.getElementById("totalSamosas").textContent = savedTotal;
+        }
+    </script>
+</body>
+</html>

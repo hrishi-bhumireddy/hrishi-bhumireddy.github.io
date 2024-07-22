@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Text Editor</title>
+    <link id="font-link" rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .editor-container {
+            margin-top: 20px;
+        }
+        .editor {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Text Editor</h1>
+    <div>
+        <label for="font-family">Font Family:</label>
+        <select id="font-family">
+            <!-- Font options will be populated here -->
+        </select>
+        <label for="font-weight">Font Weight:</label>
+        <select id="font-weight">
+            <!-- Font weight options will be populated here -->
+        </select>
+        <label for="italic">
+            <input type="checkbox" id="italic">
+            Italic
+        </label>
+    </div>
+    <div class="editor-container">
+        <textarea id="editor" class="editor"></textarea>
+    </div>
+    <div class="buttons">
+        <button id="save-button">Save</button>
+        <button id="reset-button">Reset</button>
+    </div>
+    <script src="editor.js"></script>
+</body>
+</html>

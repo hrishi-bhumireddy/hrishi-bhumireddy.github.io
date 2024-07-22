@@ -2,9 +2,9 @@
 
 ## Setup
 
-1. Clone the repository
-2. Navigate to the project directory
-3. Install dependencies
+1. open html file
+2. then enter details
+3. Reset for now data
 
 ```bash
 npm install
